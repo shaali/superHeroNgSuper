@@ -14,7 +14,8 @@
   /**
     * Application modules
   **/
-    'app.welcome'
+    'app.welcome',
+    'app.characters'
   ]);
 
 }());
