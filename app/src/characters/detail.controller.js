@@ -13,24 +13,27 @@
 		.controller('Detail', Detail);
 
   /* @ngInject */
-	function Detail(){
+	function Detail(dataService, $stateParams){
 		var vm = this;
 
-		vm.testFunction = testFunction;
+        var charID = $stateParams.characterID;
+        dataService.charDetail(charID).then(function(result) {
+            var coreData = result.data.results[0];
+            var character = {
+                name: coreData.name,
+                imgSrc: coreData.thumbnail.path + "." + coreData.thumbnail.extension,
+                description: coreData.description,
+                id: coreData.id,
+                comics: coreData.comics.collectionURI,
+                series: coreData.series.collectionURI,
+                stories: coreData.stories.collectionURI
+            };
 
-    /////////////////////
+            console.log(character);
+            vm.character = character;
+        });
 
-    /**
-     * @ngdoc method
-     * @name testFunction
-     * @param {number} num number is the number of the number
-     * @methodOf app.characters.controller:Detail
-     * @description
-     * My Description rules
-     */
-    function testFunction(num){
-			console.info('This is a test function');
-		}
+
 	}
 
 }());

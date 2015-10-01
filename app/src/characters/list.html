@@ -1,1 +1,23 @@
-<div> this a a sample view for characters.list </div>
+<div class="container">
+    <h2>Marvell Characters</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Bio</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="char in vm.characters">
+            <td>{{char.name}}</td>
+            <td>{{char.description}}</td>
+            <td><a href="#/characters/details:{{char.id}}">View</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <h2>{{vm.message}}</h2>
+    <div>
+        <a ng-repeat="page in vm.total" href="#/characters/list:{{page}}">{{page}}</a>
+    </div>
+</div>

@@ -1,1 +1,18 @@
-<div> this a a sample view for characters.detail </div>
+<a href="#/characters/list" >Back</a>
+<div class="container">
+    <div class="row-fluid">
+        <h1 class="text-center">{{vm.character.name}}</h1>
+        <div class="span12">
+            <img src="{{vm.character.imgSrc}}" class="img-polaroid" class="span4" />
+            <div class="span7">
+                <p>ID : {{vm.character.id}}</p>
+                <p>Comics : {{vm.character.comics}}</p>
+                <p>Series : {{vm.character.series}}</p>
+                <p>Stories : {{vm.character.stories}}</p>
+            </div>
+            <div class="span7 pull-right">
+                <p>{{vm.character.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
